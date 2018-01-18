@@ -33,7 +33,7 @@ namespace Microsoft.CodeAnalysis.IL
             var codeBaseUrl = new Uri(Assembly.GetExecutingAssembly().CodeBase);
             var codeBasePath = Uri.UnescapeDataString(codeBaseUrl.AbsolutePath);
             var dirPath = Path.GetDirectoryName(codeBasePath);
-            dirPath = Path.Combine(dirPath, @"..\..\..\src\");
+            dirPath = Path.Combine(dirPath, @"..\..\..\..\src\");
             dirPath = Path.GetFullPath(dirPath);
             return Path.Combine(dirPath, relativeDirectory);
         }
@@ -113,7 +113,7 @@ namespace Microsoft.CodeAnalysis.IL
             JsonSerializerSettings settings = new JsonSerializerSettings()
             {
                 ContractResolver = SarifContractResolver.Instance,
-                Formatting = Formatting.Indented
+                Formatting = Newtonsoft.Json.Formatting.Indented
             };
 
             string expectedText = File.ReadAllText(expectedFileName);
